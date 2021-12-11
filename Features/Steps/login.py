@@ -1,34 +1,36 @@
 from behave import *
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
+from Pages.main_page import MainPage
+from Pages.login_page import LoginPage
 
 
 @given('User is on login page')
 def step_impl(context):
-    context.driver.find_element(By.XPATH, "//a[@title='Sign In']").click()
-    WebDriverWait(context.driver, 10, 0.25).until(ec.url_contains, "login")
+    main_page = MainPage(context.driver)
+    main_page.main_page_go_to_login_page()
 
 
 @when('User enter valid username "kowalski.2021@o2.pl" in username field')
 def step_impl(context):
-    context.driver.find_element(By.ID, "email").send_keys("kowalski.2021@o2.pl")
+    login_page = LoginPage(context.driver)
+    login_page.login_page_enter_valid_email()
 
 
 @when('User enter valid password "Mar1234!" in password field')
 def step_impl(context):
-    context.driver.find_element(By.ID, "pass").send_keys("Mar1234!")
+    login_page = LoginPage(context.driver)
+    login_page.login_page_enter_valid_password()
 
 
 @when('User enter invalid "{username}" and/or invalid "{password}"')
 def step_impl(context, username, password):
-    context.driver.find_element(By.ID, "email").send_keys(username)
-    context.driver.find_element(By.ID, "pass").send_keys(password)
+    login_page = LoginPage(context.driver)
+    login_page.login_page_enter_invalid_email_or_password(username, password)
 
 
 @when('User clicks on SignIn button')
 def step_impl(context):
-    context.driver.find_element(By.ID, "send2").click()
+    login_page = LoginPage(context.driver)
+    login_page.login_page_save_the_form()
 
 
 @then('User is not logged in')
