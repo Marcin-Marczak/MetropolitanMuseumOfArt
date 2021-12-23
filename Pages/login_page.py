@@ -1,4 +1,7 @@
 from selenium.webdriver.common.by import By
+import json
+
+data = json.load(open("Configuration/config.json", "r"))
 
 
 class LoginPage:
@@ -9,10 +12,10 @@ class LoginPage:
         context.login_page_send_button = (By.ID, "send2")
 
     def login_page_enter_valid_email(context):
-        context.driver.find_element(*context.login_page_email_input).send_keys("kowalski.2021@o2.pl")
+        context.driver.find_element(*context.login_page_email_input).send_keys(data["email"])
 
     def login_page_enter_valid_password(context):
-        context.driver.find_element(*context.login_page_password_input).send_keys("Mar1234!")
+        context.driver.find_element(*context.login_page_password_input).send_keys(data["password"])
 
     def login_page_enter_invalid_email_or_password(context, username, password):
         context.driver.find_element(*context.login_page_email_input).send_keys(username)
