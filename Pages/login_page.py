@@ -17,8 +17,8 @@ class LoginPage:
     def login_page_enter_valid_password(context):
         context.driver.find_element(*context.login_page_password_input).send_keys(data["password"])
 
-    def login_page_enter_invalid_email_or_password(context, username, password):
-        context.driver.find_element(*context.login_page_email_input).send_keys(username)
+    def login_page_enter_invalid_email_or_password(context, email, password):
+        context.driver.find_element(*context.login_page_email_input).send_keys(email)
         context.driver.find_element(*context.login_page_password_input).send_keys(password)
 
     def login_page_save_the_form(context):

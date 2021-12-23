@@ -9,7 +9,7 @@ def step_impl(context):
     main_page.main_page_go_to_login_page()
 
 
-@when('User enter valid username "kowalski.2021@o2.pl" in username field')
+@when('User enter valid email "kowalski.2021@o2.pl" in email field')
 def step_impl(context):
     login_page = LoginPage(context.driver)
     login_page.login_page_enter_valid_email()
@@ -21,10 +21,10 @@ def step_impl(context):
     login_page.login_page_enter_valid_password()
 
 
-@when('User enter invalid "{username}" and/or invalid "{password}"')
-def step_impl(context, username, password):
+@when('User enter invalid "{email}" and/or invalid "{password}"')
+def step_impl(context, email, password):
     login_page = LoginPage(context.driver)
-    login_page.login_page_enter_invalid_email_or_password(username, password)
+    login_page.login_page_enter_invalid_email_or_password(email, password)
 
 
 @when('User clicks on SignIn button')
