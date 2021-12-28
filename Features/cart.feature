@@ -7,6 +7,6 @@ Feature: Cart functionality
     Then User is on first subcategory page
     When User opens product page of first product
     Then User is on product page
-    When User adds product to bag
-    And  User goes to bag
-    Then User sees first product from first category/first subcategory in bag
+    When User adds product to cart
+    And  User goes to cart
+    Then User sees first product from first category/first subcategory in cart
