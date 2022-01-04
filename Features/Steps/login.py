@@ -9,13 +9,13 @@ def step_impl(context):
     main_page.main_page_go_to_login_page()
 
 
-@when("User enter valid email kowalski.2021@o2.pl in email field")
+@when("User enter valid email in email field")
 def step_impl(context):
     login_page = LoginPage(context.driver)
     login_page.login_page_enter_valid_email()
 
 
-@when("User enter valid password Mar1234! in password field")
+@when("User enter valid password in password field")
 def step_impl(context):
     login_page = LoginPage(context.driver)
     login_page.login_page_enter_valid_password()

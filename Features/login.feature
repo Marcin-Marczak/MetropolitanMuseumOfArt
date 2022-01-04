@@ -3,8 +3,8 @@ Feature: Login functionality
   @smoke
   Scenario: User is able to login with valid email and password
     Given User is on login page
-    When  User enter valid email kowalski.2021@o2.pl in email field
-    And   User enter valid password Mar1234! in password field
+    When  User enter valid email in email field
+    And   User enter valid password in password field
     And   User clicks on SignIn button
     Then  User is logged in
 
