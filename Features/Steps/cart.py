@@ -2,7 +2,7 @@ from behave import *
 from Pages.cart_page import CartPage
 
 
-@then('User sees first product from first category/first subcategory in cart')
+@then("User sees first product from first category/first subcategory in cart")
 def step_impl(context):
     cart = CartPage(context.driver)
     product_quantity_in_cart = cart.cart_page_get_product_quantity()
