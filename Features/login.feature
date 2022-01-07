@@ -5,14 +5,14 @@ Feature: Login functionality
 
   @smoke
   Scenario: User is able to login with valid email and password
-    When  User enter valid email in email field
-    And   User enter valid password in password field
+    When  User enters valid email in email field
+    And   User enters valid password in password field
     And   User clicks on SignIn button
     Then  User is logged in
 
 
   Scenario Outline: User is not able to login using invalid data - multiple credentials
-    When  User enter invalid '<email>' and/or invalid '<password>'
+    When  User enters invalid '<email>' and/or invalid '<password>'
     And   User clicks on SignIn button
     Then  User is not logged in
 
