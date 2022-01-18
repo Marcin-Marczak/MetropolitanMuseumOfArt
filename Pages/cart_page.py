@@ -8,10 +8,14 @@ class CartPage:
         context.cart_page_qty_input = (By.CSS_SELECTOR, "[data-role='cart-item-qty']")
 
     def cart_page_get_product_name(context):
-        return context.driver.find_element(*context.cart_page_product_name).get_attribute("textContent")
+        product_name = context.driver.find_element(*context.cart_page_product_name)
+        product_name = product_name.get_attribute("textContent")
+        return product_name
 
-    def cart_page_get_number_of_product_in_cart(context):
-        return len(context.driver.find_elements(*context.cart_page_qty_input))
+    def cart_page_get_number_of_products_in_cart(context):
+        products_in_cart = context.driver.find_elements(*context.cart_page_qty_input)
+        number_of_products_in_cart = len(products_in_cart)
+        return number_of_products_in_cart
 
     @staticmethod
     def cart_read_product_name_from_temp_file():

@@ -18,13 +18,18 @@ class MainPage:
         WebDriverWait(context.driver, 10, 0.25).until(ec.url_contains, "login")
 
     def main_page_navigate_to_first_category(context):
-        ActionChains(context.driver).move_to_element(context.driver.find_element(*context.main_page_first_category)).perform()
+        element = context.driver.find_element(*context.main_page_first_category)
+        ActionChains(context.driver).move_to_element(element).perform()
 
     def main_page_get_first_category_name(context):
-        return context.driver.find_element(*context.main_page_first_category_name).text.lower()
+        first_category_name = context.driver.find_element(*context.main_page_first_category_name).text
+        first_category_name = first_category_name.lower()
+        return first_category_name
 
     def main_page_navigate_to_first_subcategory(context):
         context.driver.find_element(*context.main_page_first_subcategory).click()
 
     def main_page_get_first_subcategory_name(context):
-        return context.driver.find_element(*context.main_page_first_subcategory_name).text.lower()
+        first_subcategory_name = context.driver.find_element(*context.main_page_first_subcategory_name).text
+        first_subcategory_name = first_subcategory_name.lower()
+        return first_subcategory_name

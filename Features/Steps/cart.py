@@ -39,4 +39,5 @@ def step_impl(context):
 @then("There's only 1 item in cart")
 def step_impl(context):
     cart = CartPage(context.driver)
-    assert 1 == cart.cart_page_get_number_of_product_in_cart()
+    number_of_products_in_cart = cart.cart_page_get_number_of_products_in_cart()
+    assert 1 == number_of_products_in_cart
