@@ -1,8 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-import json
-
-data = json.load(open("Configuration/config.json", "r"))
+from Configuration.config_reader import *
 
 
 def before_scenario(context, scenario):

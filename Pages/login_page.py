@@ -1,7 +1,5 @@
 from selenium.webdriver.common.by import By
-import json
-
-data = json.load(open("Configuration/config.json", "r"))
+from Configuration.config_reader import *
 
 
 class LoginPage:
